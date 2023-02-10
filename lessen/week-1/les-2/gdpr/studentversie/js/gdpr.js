@@ -58,7 +58,7 @@ class GDPR {
         if (status) {
             localStorage.setItem('gdpr-consent-choice', status);
             let d = new Date();
-            let time = d.getTime().toString();
+            let time = d.getTime();
             d = d.toISOString().slice(0,10);
             localStorage.setItem('gdpr-consent-date',JSON.parse(JSON.stringify(d)));
             localStorage.setItem('gdpr-consent-time',JSON.parse(JSON.stringify(time)));
