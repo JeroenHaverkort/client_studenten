@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="" method="post" class="form-email">
+<form novalidate action="" method="post" class="form-email">
 
     <input type="email" name="email" id="email" required minlength="8">
 
@@ -18,7 +18,7 @@
 
     const email = document.getElementById("email");
 
-    email.addEventListener("input", (event) => {
+    email.addEventListener("blur", (event) => {
         debugger
         if (email.validity.typeMismatch) {
             email.setCustomValidity("Voer een geldig emailadres in!");
