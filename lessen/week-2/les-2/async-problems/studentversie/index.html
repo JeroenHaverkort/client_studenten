@@ -9,33 +9,33 @@
 <script>
 
 
-    // Synchroon uitgevoerd
-    console.log('1');
-    console.log('2');
-    console.log('3');
+    // // Synchroon uitgevoerd
+    // console.log('1');
+    // console.log('2');
+    // console.log('3');
 
-    // Asynchroon uitgevoerd
-    console.log('4');
-    setTimeout(function () {
-        console.log('5');
-    }, 1000);
-    console.log('6');
+    // // Asynchroon uitgevoerd
+    // console.log('4');
+    // setTimeout(function () {
+    //     console.log('5');
+    // }, 1000);
+    // console.log('6');
 
-    // Probleem 4,6,5, hoe te wachten op 5?
+    // // Probleem 4,6,5, hoe te wachten op 5?
 
-    // Oplossing 1: Callback
-    function print6() {
-        console.log('6');
-    }
+    // // Oplossing 1: Callback
+    // function print6() {
+    //     console.log('6');
+    // }
 
-    function print5(callback) {
-        setTimeout(function () {
-            console.log('5');
-            callback();
-        }, 1000);
-    }
+    // function print5(callback) {
+    //     setTimeout(function () {
+    //         console.log('5');
+    //         callback();
+    //     }, 1000);
+    // }
 
-    print5(print6);
+    // print5(print6);
 
     // Oplossing 2: Promise
     let resolver = function (resolve, reject) {
@@ -51,26 +51,26 @@
         console.log('6');
     });
 
-    console.log(print5Promise);
+    // console.log(print5Promise);
 
     // Promise error handling
-    let pError = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            reject('Error!');
-        }, 1000);
-    })
-        .then(() => {
-            console.log('Then 1');
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    // let pError = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         resolve();
+    //     }, 1000);
+    // })
+    //     .then(() => {
+    //         console.log('Then 1');
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //     });
 
 
     // Oplossing 3: Async/Await
     async function print56() {
         await print5Promise;
-        console.log('6');
+        console.log('7');
     }
 
     async function main() {

@@ -16,7 +16,8 @@
             requestPromises.push(fetch('http://localhost:3000/random'));
         }
 
-        const responses = //Promises.all
+        const responses = await Promise.all(requestPromises);
+        console.log(responses);
 
 //student uitwerking
 
@@ -24,7 +25,8 @@
         for(const response of responses) {
 
 //student uitwerking
-
+            const json = await response.json();
+            sum += json.random;
         }
 
         console.log(sum);
